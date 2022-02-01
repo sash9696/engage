@@ -1,0 +1,55 @@
+.preview{
+    position: relative;
+}
+.preview_closeIcon{
+    position: absolute;
+    left: 0;
+    /* font-size: larger!important; */
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 2px;
+    color: white;
+}
+.preview_closeIcon:hover{
+    color: black;
+}
+.preview_toolbarRight{
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding-right: 5px;
+    height: 270px;
+    justify-content: space-evenly;
+}
+.preview_toolbarRight > .MuiSvgIcon-root:hover{
+    cursor: pointer;
+    color: black;
+}
+.preview_footer{
+    position: absolute;
+    right: 0;
+    bottom: 5%;
+    color: white;
+    display: flex;
+    border: 1px solid gray;
+    margin-right: 5px;
+    border-radius: 10px;
+    padding: 5px; 
+    align-items: center;
+    background-color: violet;
+    justify-content: space-evenly;
+}
+.preview_footer > h4{
+    font-size: 12px;
+    font-weight: bolder;
+}
+.preview_footer > .MuiSvgIcon-root{
+    font-size: small;
+    margin-left: 2px;
+}
+.preview_footer:hover{
+    cursor: pointer;
+    color: black;
+}
