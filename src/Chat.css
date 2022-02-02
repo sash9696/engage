@@ -1,0 +1,40 @@
+.chat{
+    position: relative;
+    height: fit-content;
+}
+.chat_header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 15px;
+    background-color: turquoise;
+}
+.chat_search{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    
+}
+.chat_search > input{
+    border: none;
+    outline-width: 0;
+    background: transparent;
+}
+.chat_search > input::placeholder{
+    color: white;
+    font-weight: bolder;
+    
+}
+.chat_avatar{
+    height: 25px!important;
+    width: 25px!important;
+}
+.chat_posts{
+    background-color: white;
+    height: 350px;
+    box-shadow: 1px -7px 7px -6px rgba(0,0,0,0.44);
+    margin-top: -9px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: scroll;
+}

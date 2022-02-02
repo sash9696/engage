@@ -16,7 +16,11 @@ import TimerIcon from '@material-ui/icons/Timer';
 import SendIcon from '@material-ui/icons/Send';
 import {v4 as uuid} from "uuid";
 import { db } from './firebase';
-import firebase from 'firebase/app';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import firestore from 'firebase/firestore';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL, uploadString } from "firebase/storage";
 
 
 
@@ -33,6 +37,42 @@ function Preview() {
         const id = uuid();
         console.log("working")
         
+
+const storage = getStorage();
+const metadata = {
+    contentType: 'image/jpeg'
+  };
+const storageRef = ref(storage, `posts/${id}`);
+uploadString(storageRef, cameraImage, 'data_url').then((snapshot) => {
+    console.log('Uploaded a data_url string!');
+  });
+  const uploadTask = uploadBytesResumable(storageRef, cameraImage, metadata);
+
+// Register three observers:
+// 1. 'state_changed' observer, called any time the state changes
+// 2. Error observer, called on failure
+// 3. Completion observer, called on successful completion
+uploadTask.on('state_changed',null , 
+  (error) => {
+    // Handle unsuccessful uploads
+    console.log(error)
+  }, 
+  () => {
+    // Handle successful uploads on complete
+    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+    getDownloadURL(uploadTask.snapshot.ref)
+        .then((downloadURL) => {
+            console.log('File available at', downloadURL);
+            db.collection('posts').add({
+                imageUrl: downloadURL,
+                username: "Sahil Chopra",
+                read:false,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      })
+            navigate('/chat')
+    });
+  }
+);
     
 
     }
