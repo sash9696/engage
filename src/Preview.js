@@ -21,6 +21,8 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import firestore from 'firebase/firestore';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL, uploadString } from "firebase/storage";
+import { selectUser } from './features/appSlice';
+
 
 
 
@@ -29,6 +31,17 @@ function Preview() {
     const cameraImage = useSelector(selectCameraImage);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const user = useSelector(selectUser);
+
+    useEffect(() => {
+      if(!cameraImage)
+      {
+          navigate('/');
+      }
+      return () => {
+
+      }
+  },[cameraImage, navigate])
    
     const closePreview = () =>{
         dispatch(resetCameraImage())
@@ -44,7 +57,7 @@ const metadata = {
   };
 const storageRef = ref(storage, `posts/${id}`);
 uploadString(storageRef, cameraImage, 'data_url').then((snapshot) => {
-    console.log('Uploaded a data_url string!');
+    
   });
   const uploadTask = uploadBytesResumable(storageRef, cameraImage, metadata);
 
@@ -62,11 +75,12 @@ uploadTask.on('state_changed',null ,
     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
     getDownloadURL(uploadTask.snapshot.ref)
         .then((downloadURL) => {
-            console.log('File available at', downloadURL);
+            
             db.collection('posts').add({
                 imageUrl: downloadURL,
-                username: "Sahil Chopra",
+                username: user.username,
                 read:false,
+                profilePic: user.profilePic,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       })
             navigate('/chat')
@@ -77,13 +91,7 @@ uploadTask.on('state_changed',null ,
 
     }
   
-    useEffect(() => {
-        if(!cameraImage)
-        {
-            navigate('/');
-        }
-
-    },[cameraImage, navigate])
+    
   return (
         <div className='preview'>
             <CloseIcon onClick={closePreview} className='preview_closeIcon'/>

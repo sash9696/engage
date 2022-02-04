@@ -5,6 +5,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(238, 178, 223);
+  background-color: #ffefd5;
   height: 100vh;
+  flex-direction: column;
+}
+.app > img{
+  height: 200px;
+  object-fit: contain;
+}
+.app_body{
+  background: url('https://www.pngkey.com/png/full/859-8598072_picture-freeuse-library-silhouette-mobile-at-getdrawings-cell.png') no-repeat center;
+  background-size: contain;
+  height: 400px;
+  padding: 80px;
+}
+.app_bodyBackground{
+  height: 400px;
+  background-color: white;
+}
+
+@media only screen and (max-width: 450px) {
+  .app_body {
+    padding: 120px;
+  }
+  .app_body{
+    padding: 80px 60px;
+    width: 280px;
+  }
 }

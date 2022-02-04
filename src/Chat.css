@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     padding: 12px 15px;
-    background-color: turquoise;
+    background-color: #517eb9;
 }
 .chat_search{
     display: flex;
@@ -37,4 +37,15 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     overflow: scroll;
+}
+.takePic_button{
+    background-color: white;
+    color: gray;
+    position: absolute;
+    bottom: 7%;
+    left: 45%;
+}
+.takePic_button:hover{
+    cursor: pointer;
+    opacity: 0.8;
 }

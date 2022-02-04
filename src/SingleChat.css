@@ -1,0 +1,29 @@
+.singleChat{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    border-bottom: 1px solid lightgray;
+    padding: 5px;
+}
+.singleChat:hover{
+    opacity: 0.8;
+}
+.singleChat_icon{
+    color: red;
+    
+}
+.singleChat_info > h4{
+    font-size: 0.9rem;
+    font-weight: bolder;
+    
+}
+.singleChat_info > p{
+    font-size: 0.6rem;
+    color: gray;
+    font-weight: 800;
+}
+.singleChat_info{
+   margin-left: 10px;
+   width: 150px;
+}
