@@ -28,6 +28,8 @@
 .chat_avatar{
     height: 25px!important;
     width: 25px!important;
+    cursor: pointer;
+    
 }
 .chat_posts{
     background-color: white;
