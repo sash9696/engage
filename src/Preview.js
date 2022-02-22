@@ -22,8 +22,7 @@ import 'firebase/compat/firestore';
 import firestore from 'firebase/firestore';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL, uploadString } from "firebase/storage";
 import { selectUser } from './features/appSlice';
-
-
+import Filter from './Filter';
 
 
 function Preview() {
@@ -32,7 +31,7 @@ function Preview() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const user = useSelector(selectUser);
-
+    
     useEffect(() => {
       if(!cameraImage)
       {
@@ -87,24 +86,24 @@ uploadTask.on('state_changed',null ,
     });
   }
 );
-    
-
-    }
-  
+ }
+ 
     
   return (
         <div className='preview'>
             <CloseIcon onClick={closePreview} className='preview_closeIcon'/>
             <div className="preview_toolbarRight">
-                <TextFieldsIcon/>
-                <CreateIcon/>
-                <NoteIcon/>
-                <MusicNoteIcon/>
+                {/* <TextFieldsIcon/> */}
+                {/* <Filter image={cameraImage} /> */}
+                
+                {/* <NoteIcon/> */}
+                {/* <MusicNoteIcon/>
                 <AttachFileIcon/>
                 <CropIcon/>
-                <TimerIcon/>
+                <TimerIcon/> */}
             </div>
-            <img src={cameraImage} alt=''/>
+            {/* <img src={cameraImage} alt=''/> */}
+            <Filter image={cameraImage} />
             <div onClick={sendPost} className="preview_footer">
                 <h4>Send Now</h4>
                 <SendIcon  className='preview_sendIcon' />
