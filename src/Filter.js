@@ -113,7 +113,7 @@ console.log("this.props.renderImage ", this.renderImage )
       <>
        
           <ImageFilter
-          className="a"
+            className="a"
             image={ this.props.image }
             key={ key }
             // preserveAspectRatio='cover'
@@ -158,7 +158,7 @@ console.log("this.props.renderImage ", this.renderImage )
           className='btn btn-sm filter-clear'
           onClick={ this.handleToggleFilter }
         >
-          Clear filter
+          Clear
         </button>
 
           {/* <button
