@@ -51,7 +51,7 @@ function Chat() {
   return (
     <div className='chat'>
         <div className="chat_header">
-            <Avatar src={user.profilePic} onClick={signOut} className='chat_avatar'/>
+            <p onClick={signOut} className='chat_signout'>Sign Out</p>
             <div className="chat_search">
                 <SearchIcon/>
                 <input type='text' placeholder='Friends'/>

@@ -13,23 +13,33 @@
     display: flex;
     align-items: center;
     padding-left: 10px;
+    width: 80px;
+    justify-content: center;
+    margin-left: 20px;
     
 }
 .chat_search > input{
     border: none;
     outline-width: 0;
     background: transparent;
+
 }
 .chat_search > input::placeholder{
     color: white;
     font-weight: bolder;
     
 }
-.chat_avatar{
+/* .chat_avatar{
     height: 25px!important;
     width: 25px!important;
     cursor: pointer;
     
+} */
+.chat_signout{
+    font-size: 0.8rem;
+    font-weight: 800;
+    width: 100px;
+    cursor: pointer;
 }
 .chat_posts{
     background-color: white;
