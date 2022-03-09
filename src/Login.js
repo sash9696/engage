@@ -38,7 +38,7 @@ function Login() {
     //  }
     const guest = () => {
         auth2.signInWithEmailAndPassword('guest@gmail.com', "abcabc").then((userAuth) =>{
-            console.log(userAuth)
+            
                 dispatch(login({
                     username: "Guest User",
                     profilePic: userAuth?.user.photoURL || '',
